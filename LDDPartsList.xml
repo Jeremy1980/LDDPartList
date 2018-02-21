@@ -1,0 +1,342 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>LDDPartsList</name>
+    </assembly>
+    <members>
+        <member name="F:LDDPartsList.AboutBox.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LDDPartsList.AboutBox.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:LDDPartsList.AboutBox.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:LDDPartsList.Brick">
+            <summary>
+            Container for Brick informations.
+            </summary>
+        </member>
+        <member name="M:LDDPartsList.Brick.#ctor(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Creates a Brick object.
+            </summary>
+            <param name="itemNos">The itemNos from the LXFML.</param>
+            <param name="designID">The designID from the LXFML.</param>
+            <param name="materialID">The materialID from the LXFML.</param>
+        </member>
+        <member name="M:LDDPartsList.Brick.#ctor(System.Int32,System.Int32,System.Int32,System.String)">
+            <summary>
+            Creates a Brick object.
+            </summary>
+            <param name="itemNos">The itemNos from the LXFML.</param>
+            <param name="designID">The designID from the LXFML.</param>
+            <param name="materialID">The materialID from the LXFML.</param>
+            <param name="name">The name of the Brick.</param>
+        </member>
+        <member name="M:LDDPartsList.Brick.GetDesignID">
+            <summary>
+            Returns the designID.
+            </summary>
+            <returns>designID</returns>
+        </member>
+        <member name="M:LDDPartsList.Brick.GetItemNo">
+            <summary>
+            Returns the designID.
+            </summary>
+            <returns>designID</returns>
+        </member>
+        <member name="M:LDDPartsList.Brick.GetMaterialID">
+            <summary>
+            Returns the materialID.
+            </summary>
+            <returns>materialID</returns>
+        </member>
+        <member name="M:LDDPartsList.Brick.GetName">
+            <summary>
+            Returns the name of the Brick.
+            </summary>
+            <returns>Part's name</returns>
+        </member>
+        <member name="M:LDDPartsList.Brick.SetName(System.String)">
+            <summary>
+            Sets the Brick's name.
+            </summary>
+            <param name="newname">New name of the Brick.</param>
+        </member>
+        <member name="M:LDDPartsList.Brick.GetCount">
+            <summary>
+            Gets how many times this part was used.
+            </summary>
+            <returns>The use count.</returns>
+        </member>
+        <member name="M:LDDPartsList.Brick.Increment">
+            <summary>
+            Increments, how many times this part was used.
+            </summary>
+        </member>
+        <member name="M:LDDPartsList.Brick.HashCodeCompute(System.Int32,System.Int32)">
+            <summary>
+            Generates a hash from designID and materialID.
+            Used by Brick.
+            </summary>
+            <param name="designID">The designID from the XFML.</param>
+            <param name="materialID">The materialID from the XFML.</param>
+            <returns>The hash.</returns>
+        </member>
+        <member name="M:LDDPartsList.FileTypes.#cctor">
+            <summary>
+            The static constructor creates a predefiend set of known file types.
+            These types will handle the save actions.
+            </summary>
+        </member>
+        <member name="M:LDDPartsList.FileTypes.#ctor(System.Int32,System.String,System.String,System.Boolean,LDDPartsList.IFileTypeHandler)">
+            <summary>
+            Constructor
+            </summary>
+            <param name="id">Reference identifier</param>
+            <param name="extension">File extension</param>
+            <param name="description">Describe what is this file.</param>
+            <param name="CanXSL">Can you transform to this by XSL from XML? If yes, then true.</param>
+            <param name="handler">Save action handler object</param>
+        </member>
+        <member name="M:LDDPartsList.FileTypes.IsXSLTEnabled(LDDPartsList.FileTypes)">
+            <summary>
+            Returns if the given Filetype can work from XML.
+            </summary>
+            <param name="ft">The filetype under questioning</param>
+            <returns>Can you transform to this by XSL from XML? If yes, then true.</returns>
+        </member>
+        <member name="M:LDDPartsList.FileTypes.GetByID(System.Int32)">
+            <summary>
+            Return the filetype identified by its ID.
+            </summary>
+            <param name="id">Reference ID</param>
+            <returns>The filetype with the matching ID.</returns>
+        </member>
+        <member name="M:LDDPartsList.FileTypes.GetExtension">
+            <summary>
+            Returns the extension associated with this filetype.
+            </summary>
+            <returns>The extension as string.</returns>
+        </member>
+        <member name="M:LDDPartsList.FileTypes.GetDescription">
+            <summary>
+            Returns the summary of this filetype.
+            </summary>
+            <returns>The descrioption.</returns>
+        </member>
+        <member name="M:LDDPartsList.FileTypes.Save(System.Xml.XmlDocument,System.String)">
+            <summary>
+            Calls the Save method for this handler.
+            </summary>
+            <param name="xml">The XmlDocument to save by the handler.</param>
+            <param name="filename">Absolute path of a file.</param>
+            <returns>Success?</returns>
+        </member>
+        <member name="M:LDDPartsList.FileTypes.Save(System.Xml.XmlDocument,System.String,System.Int32)">
+            <summary>
+            Call the Save method for the specified handler.
+            </summary>
+            <param name="xml">The XmlDocument to save by the handler.</param>
+            <param name="filename">Absolute path of a file.</param>
+            <param name="typeID">The filetype reference ID.</param>
+            <returns>Success?</returns>
+        </member>
+        <member name="T:LDDPartsList.LDDPartsListForm">
+            <summary>
+            Main class.
+            </summary>
+        </member>
+        <member name="M:LDDPartsList.LDDPartsListForm.#ctor">
+            <summary>
+            Constructor.
+            
+            Fills the outputtype ComboBox with the known filetypes.
+            </summary>
+        </member>
+        <member name="M:LDDPartsList.LDDPartsListForm.openbutton_Click(System.Object,System.EventArgs)">
+            <summary>
+            Opens an opendialog to select a file.
+            </summary>
+            <param name="sender">The invoker object.</param>
+            <param name="e">Event parameters.</param>
+        </member>
+        <member name="M:LDDPartsList.LDDPartsListForm.outputtype_SelectedIndexChanged(System.Object,System.EventArgs)">
+            <summary>
+            If the output type is changed, change the savename's extension.
+            </summary>
+            <param name="sender">The invoker object.</param>
+            <param name="e">Event parameters.</param>
+        </member>
+        <member name="M:LDDPartsList.LDDPartsListForm.savebutton_Click(System.Object,System.EventArgs)">
+            <summary>
+            
+            </summary>
+            <param name="sender">The invoker object.</param>
+            <param name="e">Event parameters.</param>
+        </member>
+        <member name="M:LDDPartsList.LDDPartsListForm.lxfName_TextChanged(System.Object,System.EventArgs)">
+            <summary>
+            If the textbox is changed, re-evaluate the other controls accessibility.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:LDDPartsList.LDDPartsListForm.savename_TextChanged(System.Object,System.EventArgs)">
+            <summary>
+            If the textbox is changed, re-evaluate the other controls accessibility.
+            </summary>
+            <param name="sender">The invoker object.</param>
+            <param name="e">Event parameters.</param>
+        </member>
+        <member name="M:LDDPartsList.LDDPartsListForm.gobutton_Click(System.Object,System.EventArgs)">
+            <summary>
+            If "Go!" is pressed, start processing the input to the output.
+            </summary>
+            <param name="sender">The invoker object.</param>
+            <param name="e">Event parameters.</param>
+        </member>
+        <member name="F:LDDPartsList.LDDPartsListForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:LDDPartsList.LDDPartsListForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:LDDPartsList.LDDPartsListForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:LDDPartsList.PartNameLookup">
+            <summary>
+            Lookup for designID&amp;materialID keys.
+            </summary>
+        </member>
+        <member name="M:LDDPartsList.PartNameLookup.#ctor(System.String)">
+            <summary>
+            Constructor of PartNameLookup.
+            </summary>
+            <param name="partnamesfile">File containing the part descriptions.</param>
+        </member>
+        <member name="M:LDDPartsList.PartNameLookup.GetNameOfPart(System.Int32,System.Int32)">
+            <summary>
+            Get the name from the part description XML.
+            </summary>
+            <param name="designID">The designID form the LXFML Part</param>
+            <param name="materialID">The materialID form the LXFML Part</param>
+            <returns>The name of the part, or "Unknown".</returns>
+        </member>
+        <member name="M:LDDPartsList.PartNameLookup.GetNameOfPart(System.Int32)">
+            <summary>
+            Get the name from the part description XML.
+            </summary>
+            <param name="hash">The hash from the SortedDictionary&lt;int, Brick&gt;.</param>
+            <returns>The name of the part or "Unknown".</returns>
+        </member>
+        <member name="M:LDDPartsList.PartNameLookup.UnHash(System.Int32)">
+            <summary>
+            Hash splitter.
+            </summary>
+            <param name="hash">The hash from the SortedDictionary&lt;int, Brick&gt;.</param>
+            <returns>Array. [0] is designID, [1] is materialID.</returns>
+        </member>
+        <member name="T:LDDPartsList.PartsReader">
+            <summary>
+            PartsReader processes an LXFML stream, and count every part, and resolvesits name (if known).
+            </summary>
+        </member>
+        <member name="M:LDDPartsList.PartsReader.#ctor(System.String)">
+            <summary>
+            Creates the lookup, and initiates the process.
+            </summary>
+            <param name="lxfml">LXFML XML string</param>
+        </member>
+        <member name="M:LDDPartsList.PartsReader.Extract">
+            <summary>
+            Extract iterates through the LXFML, and counts every part.
+            </summary>
+            <returns>A dictionary with the part informations.</returns>
+        </member>
+        <member name="M:LDDPartsList.Program.Main">
+            <summary>
+            The main entry point for the application.
+            </summary>
+        </member>
+        <member name="T:LDDPartsList.Properties.Resources">
+            <summary>
+              Klasa zasobu wymagająca zdefiniowania typu do wyszukiwania zlokalizowanych ciągów itd.
+            </summary>
+        </member>
+        <member name="P:LDDPartsList.Properties.Resources.ResourceManager">
+            <summary>
+            Zwraca buforowane wystąpienie ResourceManager używane przez tę klasę.
+            </summary>
+        </member>
+        <member name="P:LDDPartsList.Properties.Resources.Culture">
+            <summary>
+              Przesłania właściwość CurrentUICulture bieżącego wątku dla wszystkich
+              przypadków przeszukiwania zasobów za pomocą tej klasy zasobów wymagającej zdefiniowania typu.
+            </summary>
+        </member>
+        <member name="P:LDDPartsList.Properties.Resources.preview">
+            <summary>
+              Wyszukuje zlokalizowany zasób typu System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="T:LDDPartsList.Unzip">
+            <summary>
+            UnZip implements the pkunzip provided by SharpZipLib.
+            </summary>
+        </member>
+        <member name="M:LDDPartsList.Unzip.#ctor(System.String)">
+            <summary>
+            This constructor sets the compressed filename.
+            </summary>
+            <param name="filename">The LXF file to unzip.</param>
+        </member>
+        <member name="M:LDDPartsList.Unzip.GetLXFML">
+            <summary>
+            Returns the contents os IMAGE100.LXFML, as an XML string.
+            </summary>
+            <returns>Contents of IMAGE100.LXFML.</returns>
+        </member>
+        <member name="M:LDDPartsList.Unzip.Decompress">
+            <summary>
+            Decompresses the given LXF.
+            </summary>
+            <returns>Contents of IMAGE100.LXFML.</returns>
+        </member>
+        <member name="T:LDDPartsList.XMLCreator">
+            <summary>
+            XMLCreator transforms a SortedDictionary&lt;int, Brick&gt; to XML.
+            </summary>
+        </member>
+        <member name="M:LDDPartsList.XMLCreator.#ctor(System.Collections.Generic.SortedDictionary{System.Int32,LDDPartsList.Brick})">
+            <summary>
+            Constructor for XMLCreator. Sets the dictionary.
+            </summary>
+            <param name="dictionary">the dictionary containing the Brick informations</param>
+        </member>
+        <member name="M:LDDPartsList.XMLCreator.GetXML">
+            <summary>
+            This method converts the SortedDictionary to XML.
+            </summary>
+            <returns>The XML.</returns>
+        </member>
+    </members>
+</doc>
