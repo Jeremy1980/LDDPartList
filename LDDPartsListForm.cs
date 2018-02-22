@@ -40,9 +40,9 @@ namespace LDDPartsList
         public LDDPartsListForm()
         {
             InitializeComponent();
-            outputtype.Items.Clear();
-            outputtype.Items.AddRange(FileTypes.GetAllDescription());
-            outputtype.Refresh();
+            outputType.Items.Clear();
+            outputType.Items.AddRange(FileTypes.GetAllDescription());
+            outputType.Refresh();
         }
 
         /// <summary>
@@ -52,12 +52,14 @@ namespace LDDPartsList
         /// <param name="e">Event parameters.</param>
         private void openbutton_Click(object sender, EventArgs e)
         {
-            opendialog.InitialDirectory = modelDirectory;
-            if (opendialog.ShowDialog() == DialogResult.OK)
+            openDialog.InitialDirectory = modelDirectory;
+            if (openDialog.ShowDialog() == DialogResult.OK)
             {
-                lxfName.Text = opendialog.FileName;
-                outputtype.Enabled = true;
-                modelDirectory = Path.GetDirectoryName(opendialog.FileName);
+                lxfName.Text = openDialog.FileName;
+                saveName.Text = "";
+                outputType.Enabled = true;
+                
+                modelDirectory = Path.GetDirectoryName(openDialog.FileName);
 
                 Unzip z = new Unzip(lxfName.Text);
                 String thumbnailPath = "";
@@ -85,14 +87,13 @@ namespace LDDPartsList
         /// <param name="e">Event parameters.</param>
         private void outputtype_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (outputtype.SelectedIndex != -1)
+            if (outputType.SelectedIndex != -1)
             {
-                LType.Text = outputtype.SelectedItem.ToString();
-                savebutton.Enabled = true;
-                savename.Enabled = true;
+                saveButton.Enabled = true;
+                saveName.Enabled = true;
 
-                if (savename.Text.Length > 4)
-                    savename.Text = savename.Text.Remove(savename.Text.LastIndexOf('.') + 1) + FileTypes.GetByID(outputtype.SelectedIndex).GetExtension();
+                if (saveName.Text.Length > 4)
+                    saveName.Text = saveName.Text.Remove(saveName.Text.LastIndexOf('.') + 1) + FileTypes.GetByID(outputType.SelectedIndex).GetExtension();
             }
         }
 
@@ -103,12 +104,15 @@ namespace LDDPartsList
         /// <param name="e">Event parameters.</param>
         private void savebutton_Click(object sender, EventArgs e)
         {
-            savedialog.Filter = FileTypes.GetByID(outputtype.SelectedIndex).GetDescription() + "|*." + FileTypes.GetByID(outputtype.SelectedIndex).GetExtension();
+            if (saveName.Text.Trim().Length == 0)
+                saveDialog.FileName = Path.GetFileNameWithoutExtension(lxfName.Text).Trim();
 
-            if (savedialog.ShowDialog() == DialogResult.OK)
+            saveDialog.Filter = FileTypes.GetByID(outputType.SelectedIndex).GetDescription() + "|*." + FileTypes.GetByID(outputType.SelectedIndex).GetExtension();
+
+            if (saveDialog.ShowDialog() == DialogResult.OK)
             {
-                savename.Text = savedialog.FileName;
-                gobutton.Enabled = true;
+                saveName.Text = saveDialog.FileName;
+                goButton.Enabled = true;
             }
 
         }
@@ -140,34 +144,40 @@ namespace LDDPartsList
         /// <param name="e">Event parameters.</param>
         private void gobutton_Click(object sender, EventArgs e)
         {
-            progress(10, "Started...");
-
-            Unzip z = new Unzip(lxfName.Text);
-            String lxfml = z.GetLXFML();
-            z = null;
-
-            progress(10, "LXFML unzipped.");
-
-            PartsReader pr = new PartsReader(lxfml);
-
-            progress(20, "LXFML loaded.");
-
-            SortedDictionary<int, Brick> partslist = pr.Extract();
-
-            progress(20, "LXFML extracted.");
-
-            XMLCreator xc = new XMLCreator(partslist);
-            XmlDocument partsxml = xc.GetXML();
-
-            progress(20, "XML generated.");
-
-            if (!FileTypes.Save(partsxml, savename.Text, outputtype.SelectedIndex))
+            progress(0, "");
+            if (Directory.Exists(Path.GetDirectoryName(saveName.Text)))
             {
-                progress(20, "Can't save the output. Sorry. Maybe I can't write there?");
-            }
-            else
-            {
-                progress(20, "Output formatted and saved. Done.");
+                progress(10, "Started...");
+
+                Unzip z = new Unzip(lxfName.Text);
+                String lxfml = z.GetLXFML();
+                z = null;
+
+                progress(10, "LXFML unzipped.");
+
+                PartsReader pr = new PartsReader(lxfml);
+
+                progress(20, "LXFML loaded.");
+
+                SortedDictionary<int, Brick> partslist = pr.Extract();
+
+                progress(20, "LXFML extracted.");
+
+                XMLCreator xc = new XMLCreator(partslist);
+                XmlDocument partsxml = xc.GetXML();
+
+                progress(20, "XML generated.");
+
+                if (!FileTypes.Save(partsxml, saveName.Text, outputType.SelectedIndex))
+                {
+                    progress(20, "Can't save the output. Sorry. Maybe I can't write there?");
+                }
+                else
+                {
+                    progress(20, "Output formatted and saved. Done.");
+                }
+            } else {
+                progress(0, "Can't save the output. Directory is not exist or accessible for me.");
             }
         }
 

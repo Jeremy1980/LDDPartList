@@ -6,10 +6,10 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("LDDPartsList")]
-[assembly: AssemblyDescription("You should have received a copy of the GNU General Public License along with LDDPartsList. The gpl.txt should be in the installation directory. If not, see <http://www.gnu.org/licenses/>.")]
+[assembly: AssemblyDescription("You should have received a copy of the GNU General Public License along with LDDPartsList. The LICENSE.txt should be in the installation directory. If not, see <http://www.gnu.org/licenses/>.")]
 [assembly: AssemblyConfiguration("Retail")]
-[assembly: AssemblyCompany("National Instruments Hungary Kft.")]
-[assembly: AssemblyProduct("LDDPartsList [Jeremy edition]")]
+[assembly: AssemblyCompany("")]
+[assembly: AssemblyProduct("LDDPartsList [Jeremy Edition]")]
 [assembly: AssemblyCopyright("Copyright © National Instruments 2008, under GPLv3 or later")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // You can specify all the values or you can default the Build and Revision Numbers 
 // by using the '*' as shown below:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("2.0.0.10")]
-[assembly: AssemblyFileVersion("2.0.0.10")]
+[assembly: AssemblyVersion("2.0.*")]
+// [assembly: AssemblyFileVersion("2.0.*")]

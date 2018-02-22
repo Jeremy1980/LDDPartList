@@ -32,7 +32,8 @@ namespace LDDPartsList
         XmlDocument xd;
         XPathNavigator xn;
         XmlNamespaceManager ns;
-        PartNameLookup lookup;
+        PartNameLookup lookup_p;
+        MaterialLookup lookup_m;
 
         /// <summary>
         /// Creates the lookup, and initiates the process.
@@ -44,8 +45,9 @@ namespace LDDPartsList
             xd.LoadXml(lxfml);
             xn = xd.CreateNavigator();
             ns = new XmlNamespaceManager(xn.NameTable);
-            lookup = new PartNameLookup(Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName) + "\\partnames.xml");
-         }
+            lookup_p = new PartNameLookup(Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName) + "\\partnames.xml");
+            lookup_m = new MaterialLookup(Path.GetDirectoryName(Process.GetCurrentProcess().MainModule.FileName) + "\\materialnames.xml");
+        }
 
         /// <summary>
         /// Extract iterates through the LXFML, and counts every part.
@@ -92,14 +94,16 @@ namespace LDDPartsList
                     material = -1;
                 }
                 int hash         = Brick.HashCodeCompute(design, material);
-                string brickname = lookup.GetNameOfPart(design, material);
+                string brickname = lookup_p.GetNameOfPart(design, material);
 
                 Brick b;
                 if (dict.TryGetValue(hash, out b))
                 {
                     b.Increment();
                 } else {
-                    dict.Add(hash, new Brick(element ,design, material, brickname));
+                    b = new Brick(element, design, material, brickname);
+                    b.SetModelData(lookup_m.GetNameOf(material), lookup_m.GetCodeOf(material));
+                    dict.Add(hash, value: b);
                 }
                 
             }

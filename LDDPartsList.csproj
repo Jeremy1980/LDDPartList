@@ -81,11 +81,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>Assemblies\ICSharpCode.SharpZipLib.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Microsoft.Office.Interop.Excel">
-      <HintPath>Assemblies\Microsoft.Office.Interop.Excel.dll</HintPath>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core">
@@ -105,7 +100,6 @@
       <DependentUpon>AboutBox.cs</DependentUpon>
     </Compile>
     <Compile Include="Brick.cs" />
-    <Compile Include="ExcelWriter.cs" />
     <Compile Include="FileTypeHandler.cs" />
     <Compile Include="FileTypes.cs" />
     <Compile Include="LDDPartsListForm.cs">
@@ -114,6 +108,7 @@
     <Compile Include="LDDPartsListForm.Designer.cs">
       <DependentUpon>LDDPartsListForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="MaterialLookup.cs" />
     <Compile Include="PartNameLookup.cs" />
     <Compile Include="PartsReader.cs" />
     <Compile Include="Program.cs" />
@@ -150,11 +145,12 @@
     <Compile Include="XSLTransformer.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="gpl.txt">
+    <Content Include="LICENSE.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <None Include="Images\preview.jpg" />
     <Content Include="mainIcon.ico" />
+    <Content Include="materialnames.xml" />
     <Content Include="partnames.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -241,26 +237,6 @@
       <IncludeHash>True</IncludeHash>
       <FileType>File</FileType>
     </PublishFile>
-  </ItemGroup>
-  <ItemGroup>
-    <COMReference Include="Microsoft.Office.Core">
-      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
-      <VersionMajor>2</VersionMajor>
-      <VersionMinor>5</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
-    <COMReference Include="VBIDE">
-      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
-      <VersionMajor>5</VersionMajor>
-      <VersionMinor>3</VersionMinor>
-      <Lcid>0</Lcid>
-      <WrapperTool>tlbimp</WrapperTool>
-      <Isolated>False</Isolated>
-      <EmbedInteropTypes>True</EmbedInteropTypes>
-    </COMReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -1,0 +1,122 @@
+<materials> 
+ <material code="FFFFFF" materialID="1" name="White"/>
+ <material code="9BA19D" materialID="2" name="Grey"/>
+ <material code="FBE696" materialID="3" name="Light Yellow"/>
+ <material code="F2705E" materialID="4" name="Brick Red"/>
+ <material code="E4CD9E" materialID="5" name="Brick Yellow"/>
+ <material code="C2DAB8" materialID="6" name="Light Green"/>
+ <material code="FC97AC" materialID="9" name="Light Reddish Violet"/>
+ <material code="54A9C8" materialID="11" name="Pastel Blue"/>
+ <material code="B67B50" materialID="12" name="Light Orange Brown"/>
+ <material code="F785B1" materialID="16" name="Pink"/>
+ <material code="D09168" materialID="18" name="Nougat"/>
+ <material code="FFFFFF" materialID="20" name="Nature"/>
+ <material code="C91A09" materialID="21" name="Bright Red"/>
+ <material code="F785B1" materialID="22" name="Medium Reddish Violet"/>
+ <material code="0055BF" materialID="23" name="Bright Blue"/>
+ <material code="F2CD37" materialID="24" name="Bright Yellow"/>
+ <material code="FA9C1C" materialID="25" name="Earth Orange"/>
+ <material code="05131D" materialID="26" name="Black"/>
+ <material code="6D6E5C" materialID="27" name="Dark Grey"/>
+ <material code="257A3E" materialID="28" name="Dark Green"/>
+ <material code="73DCA1" materialID="29" name="Medium Green"/>
+ <material code="F3CF9B" materialID="36" name="Light Yellowish Orange"/>
+ <material code="CC702A" materialID="38" name="Dark Orange"/>
+ <material code="C9CAE2" materialID="39" name="Light Bluish Violet"/>
+ <material code="FCFCFC" materialID="40" name="Transparent"/>
+ <material code="C91A09" materialID="41" name="Transparent Red"/>
+ <material code="AEE9EF" materialID="42" name="Transparent Light Blue"/>
+ <material code="0020A0" materialID="43" name="Transparent Blue"/>
+ <material code="F5CD2F" materialID="44" name="Transparent Yellow"/>
+ <material code="B4D2E3" materialID="45" name="Light Blue"/>
+ <material code="FF800D" materialID="47" name="Transparent Fluorescent Reddish Orange"/>
+ <material code="237841" materialID="48" name="Transparent Green"/>
+ <material code="C0FF00" materialID="49" name="Transparent Fluorescent Green"/>
+ <material code="BDC6AD" materialID="50" name="Phosphorescent White"/>
+ <material code="FEBABD" materialID="100" name="Light Red"/>
+ <material code="5C9DD1" materialID="102" name="Medium Blue"/>
+ <material code="E6E3DA" materialID="103" name="Light Grey"/>
+ <material code="81007B" materialID="104" name="Bright Violet"/>
+ <material code="FFA70B" materialID="105" name="Bright Yellowish Orange"/>
+ <material code="FE8A18" materialID="106" name="Bright Orange"/>
+ <material code="00838F" materialID="107" name="Bright Bluish Green"/>
+ <material code="4354A3" materialID="110" name="Bright Bluish Violet"/>
+ <material code="635F52" materialID="111" name="Transparent Brown"/>
+ <material code="6874CA" materialID="112" name="Medium Bluish Violet"/>
+ <material code="DF6695" materialID="113" name="Transparent Medium Reddish Violet"/>
+ <material code="DF6695" materialID="114" name="Medium Reddish Violet"/>
+ <material code="C7D23C" materialID="115" name="Medium Yellowish Green"/>
+ <material code="55A5AF" materialID="116" name="Medium Bluish Green"/>
+ <material code="FFFFFF" materialID="117" name="Transparent Glitter"/>
+ <material code="B3D7D1" materialID="118" name="Light Bluish Green"/>
+ <material code="BBE90B" materialID="119" name="Bright Yellowish Green"/>
+ <material code="923978" materialID="124" name="Bright Reddish Violet"/>
+ <material code="F9BA61" materialID="125" name="Light Orange"/>
+ <material code="A5A5CB" materialID="126" name="Transparent Bright Bluish Violet"/>
+ <material code="DCBE61" materialID="127" name="Gold"/>
+ <material code="640061" materialID="129" name="Transparent Bluish Violet"/>
+ <material code="898788" materialID="131" name="Silver"/>
+ <material code="597184" materialID="135" name="Sand Blue"/>
+ <material code="845E84" materialID="136" name="Sand Violet"/>
+ <material code="958A73" materialID="138" name="Sand Yellow"/>
+ <material code="964A27" materialID="139" name="Copper"/>
+ <material code="0D325B" materialID="140" name="Earth Blue"/>
+ <material code="184632" materialID="141" name="Earth Green"/>
+ <material code="559AB7" materialID="143" name="Transparent Fluorescent Blue"/>
+ <material code="5677BA" materialID="145" name="Metallic Sand Blue"/>
+ <material code="575857" materialID="148" name="Metallic Dark Grey"/>
+ <material code="1A2831" materialID="149" name="Metallic Black"/>
+ <material code="BBBDBC" materialID="150" name="Metallic Light Grey"/>
+ <material code="A0BCAC" materialID="151" name="Sand Green"/>
+ <material code="D67572" materialID="153" name="Sand Red"/>
+ <material code="720E0F" materialID="154" name="New Dark Red"/>
+ <material code="DAB000" materialID="157" name="Transparent Fluorescent Yellow"/>
+ <material code="9CA3A8" materialID="179" name="Pearl Light Gray"/>
+ <material code="F08F1C" materialID="182" name="Transparent Bright Orange"/>
+ <material code="F2F3F2" materialID="183" name="Metallic White"/>
+ <material code="6C96BF" materialID="185" name="Metallic Bright Blue"/>
+ <material code="645A4C" materialID="187" name="Metallic Earth Orange"/>
+ <material code="F8BB3D" materialID="191" name="Flame Yellowish Orange"/>
+ <material code="582A12" materialID="192" name="Reddish Brown"/>
+ <material code="A0A5A9" materialID="194" name="Medium Stone Grey"/>
+ <material code="4C61DB" materialID="195" name="Medium Royal Blue"/>
+ <material code="2032B0" materialID="196" name="Dark Royal Blue"/>
+ <material code="CD6298" materialID="198" name="Bright Reddish Lilac"/>
+ <material code="6C6E68" materialID="199" name="Dark Stone Grey"/>
+ <material code="899B5F" materialID="200" name="Lemon Metallic"/>
+ <material code="E6E3E0" materialID="208" name="Light Stone Grey"/>
+ <material code="86C1E1" materialID="212" name="Light Royal Blue"/>
+ <material code="B31004" materialID="216" name="Rust"/>
+ <material code="583927" materialID="217" name="Brown"/>
+ <material code="C870A0" materialID="221" name="Bright Purple"/>
+ <material code="E4ADC8" materialID="222" name="Light Purple"/>
+ <material code="FECCCF" materialID="223" name="Light Pink"/>
+ <material code="FFF03A" materialID="226" name="Cool Yellow"/>
+ <material code="C1DFF0" materialID="229" name="Transparent Light Bluish Green"/>
+ <material code="FC97AC" materialID="230" name="Transparent Bright Pink"/>
+ <material code="56BED6" materialID="232" name="Dove Blue"/>
+ <material code="96709F" materialID="236" name="Transparent Bright Reddish Lilac"/>
+ <material code="3F3691" materialID="268" name="Medium Lilac"/>
+ <material code="F6D7B3" materialID="283" name="Light Nougat"/>
+ <material code="E0FFB0" materialID="294" name="Phosphorescent Green"/>
+ <material code="CC9C2B" materialID="297" name="Warm Gold"/>
+ <material code="E0E0E0" materialID="298" name="Cool Silver Drum"/>
+ <material code="BBA53D" materialID="299" name="Warm Gold Drum"/>
+ <material code="9CA3A8" materialID="301" name="Pearl Light Gray"/>
+ <material code="635F61" materialID="304" name="Diffused Silver"/>
+ <material code="000000" materialID="306" name="Defused Copper"/>
+ <material code="352100" materialID="308" name="Dark Brown"/>
+ <material code="6D6E5C" materialID="309" name="Metalized Silver"/>
+ <material code="C40026" materialID="310" name="Metalized Gold"/>
+ <material code="56E646" materialID="311" name="Transparent Bright Green"/>
+ <material code="7C503A" materialID="312" name="Medium Nougat"/>
+ <material code="A5A9B4" materialID="315" name="Silver Metallic"/>
+ <material code="DBAC34" materialID="316" name="Titanium Metallic"/>
+ <material code="1498D7" materialID="321" name="Dark Azur"/>
+ <material code="3EC2DD" materialID="322" name="Medium Azur"/>
+ <material code="BDDCD8" materialID="323" name="Aqua"/>
+ <material code="AC78BA" materialID="324" name="Medium Lavender"/>
+ <material code="E1D5ED" materialID="325" name="Lavender"/>
+ <material code="DFEEA5" materialID="326" name="Spring Yellowish Green"/>
+ <material code="9B9A5A" materialID="330" name="Olive Green"/>
+</materials> 

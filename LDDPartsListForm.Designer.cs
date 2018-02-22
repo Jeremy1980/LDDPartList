@@ -30,28 +30,27 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.lxfName = new System.Windows.Forms.TextBox();
-            this.openbutton = new System.Windows.Forms.Button();
-            this.opendialog = new System.Windows.Forms.OpenFileDialog();
-            this.savedialog = new System.Windows.Forms.SaveFileDialog();
-            this.outputtype = new System.Windows.Forms.ComboBox();
+            this.openButton = new System.Windows.Forms.Button();
+            this.openDialog = new System.Windows.Forms.OpenFileDialog();
+            this.saveDialog = new System.Windows.Forms.SaveFileDialog();
+            this.outputType = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.LType = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.savename = new System.Windows.Forms.TextBox();
-            this.savebutton = new System.Windows.Forms.Button();
-            this.gobutton = new System.Windows.Forms.Button();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.saveName = new System.Windows.Forms.TextBox();
+            this.saveButton = new System.Windows.Forms.Button();
+            this.goButton = new System.Windows.Forms.Button();
+            this.menuStrip = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.exitToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.helpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.statusStrip1 = new System.Windows.Forms.StatusStrip();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.progressBar = new System.Windows.Forms.ToolStripProgressBar();
             this.progressText = new System.Windows.Forms.ToolStripStatusLabel();
             this.pictureBox = new System.Windows.Forms.PictureBox();
-            this.menuStrip1.SuspendLayout();
-            this.statusStrip1.SuspendLayout();
+            this.menuStrip.SuspendLayout();
+            this.statusStrip.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,40 +71,40 @@
             this.lxfName.TabIndex = 1;
             this.lxfName.TextChanged += new System.EventHandler(this.outputtype_TextChanged);
             // 
-            // openbutton
+            // openButton
             // 
-            this.openbutton.Location = new System.Drawing.Point(407, 25);
-            this.openbutton.Name = "openbutton";
-            this.openbutton.Size = new System.Drawing.Size(75, 23);
-            this.openbutton.TabIndex = 2;
-            this.openbutton.Text = "&Open...";
-            this.openbutton.UseVisualStyleBackColor = true;
-            this.openbutton.Click += new System.EventHandler(this.openbutton_Click);
+            this.openButton.Location = new System.Drawing.Point(407, 25);
+            this.openButton.Name = "openButton";
+            this.openButton.Size = new System.Drawing.Size(75, 23);
+            this.openButton.TabIndex = 2;
+            this.openButton.Text = "&Open...";
+            this.openButton.UseVisualStyleBackColor = true;
+            this.openButton.Click += new System.EventHandler(this.openbutton_Click);
             // 
-            // opendialog
+            // openDialog
             // 
-            this.opendialog.Filter = "LEGO Digital Designer model|*.LXF";
-            this.opendialog.Title = "Select a model file...";
+            this.openDialog.Filter = "LEGO Digital Designer model|*.LXF";
+            this.openDialog.Title = "Select a model file...";
             // 
-            // savedialog
+            // saveDialog
             // 
-            this.savedialog.Title = "Select the output file...";
+            this.saveDialog.Title = "Select the output file...";
             // 
-            // outputtype
+            // outputType
             // 
-            this.outputtype.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.outputtype.Enabled = false;
-            this.outputtype.Items.AddRange(new object[] {
+            this.outputType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.outputType.Enabled = false;
+            this.outputType.Items.AddRange(new object[] {
             "Text",
             "XML",
             "Excel",
             "HTML"});
-            this.outputtype.Location = new System.Drawing.Point(110, 79);
-            this.outputtype.Name = "outputtype";
-            this.outputtype.Size = new System.Drawing.Size(160, 21);
-            this.outputtype.TabIndex = 3;
-            this.outputtype.SelectionChangeCommitted += new System.EventHandler(this.outputtype_SelectedIndexChanged);
-            this.outputtype.TextChanged += new System.EventHandler(this.outputtype_TextChanged);
+            this.outputType.Location = new System.Drawing.Point(110, 79);
+            this.outputType.Name = "outputType";
+            this.outputType.Size = new System.Drawing.Size(160, 21);
+            this.outputType.TabIndex = 3;
+            this.outputType.SelectionChangeCommitted += new System.EventHandler(this.outputtype_SelectedIndexChanged);
+            this.outputType.TextChanged += new System.EventHandler(this.outputtype_TextChanged);
             // 
             // label2
             // 
@@ -116,16 +115,6 @@
             this.label2.TabIndex = 10;
             this.label2.Text = "Type of the output";
             // 
-            // LType
-            // 
-            this.LType.AutoSize = true;
-            this.LType.Location = new System.Drawing.Point(276, 82);
-            this.LType.Name = "LType";
-            this.LType.Size = new System.Drawing.Size(80, 13);
-            this.LType.TabIndex = 13;
-            this.LType.Text = "(none selected)";
-            this.LType.Visible = false;
-            // 
             // label3
             // 
             this.label3.AutoSize = true;
@@ -135,50 +124,50 @@
             this.label3.TabIndex = 12;
             this.label3.Text = "Output filename";
             // 
-            // savename
+            // saveName
             // 
-            this.savename.Enabled = false;
-            this.savename.Location = new System.Drawing.Point(110, 53);
-            this.savename.Name = "savename";
-            this.savename.Size = new System.Drawing.Size(291, 20);
-            this.savename.TabIndex = 4;
-            this.savename.TextChanged += new System.EventHandler(this.outputtype_TextChanged);
+            this.saveName.Enabled = false;
+            this.saveName.Location = new System.Drawing.Point(110, 53);
+            this.saveName.Name = "saveName";
+            this.saveName.Size = new System.Drawing.Size(291, 20);
+            this.saveName.TabIndex = 4;
+            this.saveName.TextChanged += new System.EventHandler(this.outputtype_TextChanged);
             // 
-            // savebutton
+            // saveButton
             // 
-            this.savebutton.Enabled = false;
-            this.savebutton.Location = new System.Drawing.Point(407, 51);
-            this.savebutton.Name = "savebutton";
-            this.savebutton.Size = new System.Drawing.Size(75, 23);
-            this.savebutton.TabIndex = 5;
-            this.savebutton.Text = "&Save...";
-            this.savebutton.UseVisualStyleBackColor = true;
-            this.savebutton.Click += new System.EventHandler(this.savebutton_Click);
+            this.saveButton.Enabled = false;
+            this.saveButton.Location = new System.Drawing.Point(407, 51);
+            this.saveButton.Name = "saveButton";
+            this.saveButton.Size = new System.Drawing.Size(75, 23);
+            this.saveButton.TabIndex = 5;
+            this.saveButton.Text = "&Save...";
+            this.saveButton.UseVisualStyleBackColor = true;
+            this.saveButton.Click += new System.EventHandler(this.savebutton_Click);
             // 
-            // gobutton
+            // goButton
             // 
-            this.gobutton.Enabled = false;
-            this.gobutton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.gobutton.Location = new System.Drawing.Point(407, 79);
-            this.gobutton.Name = "gobutton";
-            this.gobutton.Size = new System.Drawing.Size(75, 46);
-            this.gobutton.TabIndex = 6;
-            this.gobutton.Text = "Go!";
-            this.gobutton.UseVisualStyleBackColor = true;
-            this.gobutton.Click += new System.EventHandler(this.gobutton_Click);
+            this.goButton.Enabled = false;
+            this.goButton.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.goButton.Location = new System.Drawing.Point(407, 79);
+            this.goButton.Name = "goButton";
+            this.goButton.Size = new System.Drawing.Size(75, 46);
+            this.goButton.TabIndex = 6;
+            this.goButton.Text = "Go!";
+            this.goButton.UseVisualStyleBackColor = true;
+            this.goButton.Click += new System.EventHandler(this.gobutton_Click);
             // 
-            // menuStrip1
+            // menuStrip
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.helpToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
-            this.menuStrip1.ShowItemToolTips = true;
-            this.menuStrip1.Size = new System.Drawing.Size(600, 24);
-            this.menuStrip1.TabIndex = 14;
-            this.menuStrip1.Text = "menuStrip";
+            this.menuStrip.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip.Name = "menuStrip";
+            this.menuStrip.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.menuStrip.ShowItemToolTips = true;
+            this.menuStrip.Size = new System.Drawing.Size(600, 24);
+            this.menuStrip.TabIndex = 14;
+            this.menuStrip.Text = "menuStrip";
             // 
             // fileToolStripMenuItem
             // 
@@ -222,16 +211,16 @@
             this.aboutToolStripMenuItem.ToolTipText = "Shows licensing information";
             this.aboutToolStripMenuItem.Click += new System.EventHandler(this.aboutToolStripMenuItem_Click);
             // 
-            // statusStrip1
+            // statusStrip
             // 
-            this.statusStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.progressBar,
             this.progressText});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 131);
-            this.statusStrip1.Name = "statusStrip1";
-            this.statusStrip1.Size = new System.Drawing.Size(600, 22);
-            this.statusStrip1.TabIndex = 15;
-            this.statusStrip1.Text = "statusStrip";
+            this.statusStrip.Location = new System.Drawing.Point(0, 131);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Size = new System.Drawing.Size(600, 22);
+            this.statusStrip.TabIndex = 15;
+            this.statusStrip.Text = "statusStrip";
             // 
             // progressBar
             // 
@@ -262,28 +251,27 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 153);
             this.Controls.Add(this.pictureBox);
-            this.Controls.Add(this.statusStrip1);
-            this.Controls.Add(this.gobutton);
-            this.Controls.Add(this.savebutton);
-            this.Controls.Add(this.savename);
+            this.Controls.Add(this.statusStrip);
+            this.Controls.Add(this.goButton);
+            this.Controls.Add(this.saveButton);
+            this.Controls.Add(this.saveName);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.LType);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.outputtype);
-            this.Controls.Add(this.openbutton);
+            this.Controls.Add(this.outputType);
+            this.Controls.Add(this.openButton);
             this.Controls.Add(this.lxfName);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.menuStrip1);
+            this.Controls.Add(this.menuStrip);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.MainMenuStrip = this.menuStrip1;
+            this.MainMenuStrip = this.menuStrip;
             this.Name = "LDDPartsListForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LDD Parts List";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.LDDPartsListForm_FormClosed);
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
-            this.statusStrip1.ResumeLayout(false);
-            this.statusStrip1.PerformLayout();
+            this.menuStrip.ResumeLayout(false);
+            this.menuStrip.PerformLayout();
+            this.statusStrip.ResumeLayout(false);
+            this.statusStrip.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -294,22 +282,21 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox lxfName;
-        private System.Windows.Forms.Button openbutton;
-        private System.Windows.Forms.OpenFileDialog opendialog;
-        private System.Windows.Forms.SaveFileDialog savedialog;
-        private System.Windows.Forms.ComboBox outputtype;
+        private System.Windows.Forms.Button openButton;
+        private System.Windows.Forms.OpenFileDialog openDialog;
+        private System.Windows.Forms.SaveFileDialog saveDialog;
+        private System.Windows.Forms.ComboBox outputType;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label LType;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox savename;
-        private System.Windows.Forms.Button savebutton;
-        private System.Windows.Forms.Button gobutton;
-        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.TextBox saveName;
+        private System.Windows.Forms.Button saveButton;
+        private System.Windows.Forms.Button goButton;
+        private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem exitToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem helpToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aboutToolStripMenuItem;
-        private System.Windows.Forms.StatusStrip statusStrip1;
+        private System.Windows.Forms.StatusStrip statusStrip;
         private System.Windows.Forms.ToolStripProgressBar progressBar;
         private System.Windows.Forms.ToolStripStatusLabel progressText;
         private System.Windows.Forms.ToolStripMenuItem openToolStripMenuItem;

@@ -27,9 +27,8 @@ namespace LDDPartsList
         private bool   XSLEnabled;
         private IFileTypeHandler handler;
 
-        public static FileTypes TEXT  = new FileTypes(0, "txt",  "Formatted Text", true, new XSLTransformer("txt"));
+        public static FileTypes TEXT  = new FileTypes(0, "csv",  "Formatted Text", true, new XSLTransformer("txt"));
         public static FileTypes XML   = new FileTypes(1, "xml",  "XML Document", true, new XSLTransformer("xml"));
-        //public static FileTypes EXCEL = new FileTypes(2, "xls",  "Excel Sheet", false, new ExcelWriter());
         public static FileTypes HTML  = new FileTypes(2, "html", "Web Page", true, new XSLTransformer("html"));
 
         private static FileTypes[] types = new FileTypes[3];
@@ -42,7 +41,6 @@ namespace LDDPartsList
         {
             types[0] = TEXT;
             types[1] = XML;
-            //types[2] = EXCEL;
             types[2] = HTML;
         }
 

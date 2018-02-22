@@ -53,6 +53,8 @@ namespace LDDPartsList
                 p.SetAttribute("itemNos",    kvp.Value.GetItemNo().ToString());
                 p.SetAttribute("designID",   kvp.Value.GetDesignID().ToString());
                 p.SetAttribute("materialID", kvp.Value.GetMaterialID().ToString());
+                p.SetAttribute("materialName", kvp.Value.GetMaterialName());
+                p.SetAttribute("materialCode", kvp.Value.GetMaterialCode());
                 p.SetAttribute("count",      kvp.Value.GetCount().ToString());
                 p.SetAttribute("name",       kvp.Value.GetName());
                 p.Normalize();

@@ -29,6 +29,8 @@ namespace LDDPartsList
         private int materialID;
         private int count;
         private String Name;
+        private String materialName;
+        private String materialCode;
 
         /// <summary>
         /// Creates a Brick object.
@@ -43,6 +45,8 @@ namespace LDDPartsList
             this.materialID = materialID;
             this.count = 1;
             this.Name = "Unknown";
+            this.materialName = "Unknown";
+            this.materialCode = "";
         }
 
         /// <summary>
@@ -59,6 +63,8 @@ namespace LDDPartsList
             this.materialID = materialID;
             this.count = 1;
             this.Name = String.Copy(name);
+            this.materialName = "Unknown";
+            this.materialCode = "";
         }
 
         /// <summary>
@@ -89,6 +95,24 @@ namespace LDDPartsList
         }
 
         /// <summary>
+        /// Returns the materialName.
+        /// </summary>
+        /// <returns>materialName</returns>
+        public string GetMaterialName()
+        {
+            return this.materialName;
+        }
+
+        /// <summary>
+        /// Returns the materialCode.
+        /// </summary>
+        /// <returns>materialCode</returns>
+        public string GetMaterialCode()
+        {
+            return this.materialCode;
+        }
+
+        /// <summary>
         /// Returns the name of the Brick.
         /// </summary>
         /// <returns>Part's name</returns>
@@ -104,6 +128,12 @@ namespace LDDPartsList
         public void SetName(string newname)
         {
             this.Name = String.Copy(newname);
+        }
+
+        internal void SetModelData(string name, string hexCode)
+        {
+            this.materialName = name;
+            this.materialCode = hexCode;
         }
 
         /// <summary>

@@ -60,6 +60,18 @@
             </summary>
             <returns>materialID</returns>
         </member>
+        <member name="M:LDDPartsList.Brick.GetMaterialName">
+            <summary>
+            Returns the materialName.
+            </summary>
+            <returns>materialName</returns>
+        </member>
+        <member name="M:LDDPartsList.Brick.GetMaterialCode">
+            <summary>
+            Returns the materialCode.
+            </summary>
+            <returns>materialCode</returns>
+        </member>
         <member name="M:LDDPartsList.Brick.GetName">
             <summary>
             Returns the name of the Brick.
