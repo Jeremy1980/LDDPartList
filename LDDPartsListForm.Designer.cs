@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LDDPartsListForm));
             this.label1 = new System.Windows.Forms.Label();
             this.lxfName = new System.Windows.Forms.TextBox();
             this.openButton = new System.Windows.Forms.Button();
@@ -238,15 +239,17 @@
             this.pictureBox.ErrorImage = global::LDDPartsList.Properties.Resources.preview;
             this.pictureBox.Image = global::LDDPartsList.Properties.Resources.preview;
             this.pictureBox.InitialImage = global::LDDPartsList.Properties.Resources.preview;
-            this.pictureBox.Location = new System.Drawing.Point(488, 25);
+            this.pictureBox.Location = new System.Drawing.Point(493, 25);
             this.pictureBox.Name = "pictureBox";
             this.pictureBox.Size = new System.Drawing.Size(100, 100);
-            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox.TabIndex = 16;
             this.pictureBox.TabStop = false;
+            this.pictureBox.WaitOnLoad = true;
             // 
             // LDDPartsListForm
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(600, 153);
@@ -263,11 +266,15 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.menuStrip);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip;
             this.Name = "LDDPartsListForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LDD Parts List";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.LDDPartsListForm_FormClosed);
+            this.Shown += new System.EventHandler(this.LDDPartsListForm_Shown);
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.LDDPartsListForm_DragDrop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.LDDPartsListForm_DragEnter);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.statusStrip.ResumeLayout(false);

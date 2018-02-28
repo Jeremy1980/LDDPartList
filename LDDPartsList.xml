@@ -168,7 +168,7 @@
             Main class.
             </summary>
         </member>
-        <member name="M:LDDPartsList.LDDPartsListForm.#ctor">
+        <member name="M:LDDPartsList.LDDPartsListForm.#ctor(System.String[])">
             <summary>
             Constructor.
             
@@ -192,20 +192,6 @@
         <member name="M:LDDPartsList.LDDPartsListForm.savebutton_Click(System.Object,System.EventArgs)">
             <summary>
             
-            </summary>
-            <param name="sender">The invoker object.</param>
-            <param name="e">Event parameters.</param>
-        </member>
-        <member name="M:LDDPartsList.LDDPartsListForm.lxfName_TextChanged(System.Object,System.EventArgs)">
-            <summary>
-            If the textbox is changed, re-evaluate the other controls accessibility.
-            </summary>
-            <param name="sender"></param>
-            <param name="e"></param>
-        </member>
-        <member name="M:LDDPartsList.LDDPartsListForm.savename_TextChanged(System.Object,System.EventArgs)">
-            <summary>
-            If the textbox is changed, re-evaluate the other controls accessibility.
             </summary>
             <param name="sender">The invoker object.</param>
             <param name="e">Event parameters.</param>

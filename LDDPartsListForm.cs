@@ -29,16 +29,19 @@ namespace LDDPartsList
     public partial class LDDPartsListForm : Form
     {
 
-        List<string> thumblist = new List<string>(new string[] { });
-        string modelDirectory = "";
+        private List<string> thumblist = new List<string>(new string[] { });
+        private string modelDirectory = "";
+        private string commandLineModelArg = "";
 
         /// <summary>
         /// Constructor.
         /// 
         /// Fills the outputtype ComboBox with the known filetypes.
         /// </summary>
-        public LDDPartsListForm()
+        public LDDPartsListForm(string[] args)
         {
+            commandLineModelArg = File.Exists(args[1]) ? args[1] : "";
+
             InitializeComponent();
             outputType.Items.Clear();
             outputType.Items.AddRange(FileTypes.GetAllDescription());
@@ -56,27 +59,7 @@ namespace LDDPartsList
             if (openDialog.ShowDialog() == DialogResult.OK)
             {
                 lxfName.Text = openDialog.FileName;
-                saveName.Text = "";
-                outputType.Enabled = true;
-                
-                modelDirectory = Path.GetDirectoryName(openDialog.FileName);
-
-                Unzip z = new Unzip(lxfName.Text);
-                String thumbnailPath = "";
-                try
-                {
-                    thumbnailPath = z.ExtractImage();
-                } finally {
-                    if (File.Exists(thumbnailPath))
-                    {
-                        pictureBox.Load(url: thumbnailPath);
-                        thumblist.Add(thumbnailPath);
-                    } else {
-                        pictureBox.ImageLocation = @"checkimagelocalion";
-                    }
-
-                }
-                z = null;
+                updateControls(openDialog.FileName);
             }
         }
 
@@ -117,25 +100,6 @@ namespace LDDPartsList
 
         }
 
-        /// <summary>
-        /// If the textbox is changed, re-evaluate the other controls accessibility.
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void lxfName_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        /// <summary>
-        /// If the textbox is changed, re-evaluate the other controls accessibility.
-        /// </summary>
-        /// <param name="sender">The invoker object.</param>
-        /// <param name="e">Event parameters.</param>
-        private void savename_TextChanged(object sender, EventArgs e)
-        {
-
-        }
 
         /// <summary>
         /// If "Go!" is pressed, start processing the input to the output.
@@ -144,41 +108,75 @@ namespace LDDPartsList
         /// <param name="e">Event parameters.</param>
         private void gobutton_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
+            XmlDocument partsxml = new XmlDocument();
             progress(0, "");
-            if (Directory.Exists(Path.GetDirectoryName(saveName.Text)))
+            try
             {
                 progress(10, "Started...");
 
                 Unzip z = new Unzip(lxfName.Text);
                 String lxfml = z.GetLXFML();
-                z = null;
 
-                progress(10, "LXFML unzipped.");
+                progress(10, "LXFML unzipped. ");
 
                 PartsReader pr = new PartsReader(lxfml);
 
-                progress(20, "LXFML loaded.");
+                progress(20, "LXFML loaded. ");
 
                 SortedDictionary<int, Brick> partslist = pr.Extract();
 
-                progress(20, "LXFML extracted.");
+                progress(20, "LXFML extracted. ");
 
                 XMLCreator xc = new XMLCreator(partslist);
-                XmlDocument partsxml = xc.GetXML();
+                partsxml = xc.GetXML();
 
-                progress(20, "XML generated.");
+                progress(20, "XML generated. ");
 
+                z = null;
                 if (!FileTypes.Save(partsxml, saveName.Text, outputType.SelectedIndex))
                 {
-                    progress(20, "Can't save the output. Sorry. Maybe I can't write there?");
+                    progress(20, "Can't save the output. Sorry. Maybe I can't write there? ");
                 }
                 else
                 {
-                    progress(20, "Output formatted and saved. Done.");
+                    progress(20, "Output formatted and saved. Done. ");
                 }
-            } else {
-                progress(0, "Can't save the output. Directory is not exist or accessible for me.");
             }
+            catch (Exception ex)
+            {
+                progressText.Text += ex.Message;
+            }
+            Cursor.Current = Cursors.Arrow;
+        }
+
+        private void updateControls(string sourceDir)
+        {
+            saveName.Text = "";
+            outputType.Enabled = true;
+
+            modelDirectory = Path.GetDirectoryName(sourceDir);
+
+            Unzip z = new Unzip(lxfName.Text);
+            String thumbnailPath = "";
+            try
+            {
+                thumbnailPath = z.ExtractImage();
+            }
+            finally
+            {
+                if (File.Exists(thumbnailPath))
+                {
+                    pictureBox.Load(url: thumbnailPath);
+                    thumblist.Add(thumbnailPath);
+                }
+                else
+                {
+                    pictureBox.ImageLocation = @"checkimagelocalion";
+                }
+
+            }
+            z = null;
         }
 
         private void exitToolStripMenuItem_Click(object sender, EventArgs e)
@@ -219,5 +217,33 @@ namespace LDDPartsList
         {
             progressText.Text = "";
         }
+
+        private void LDDPartsListForm_Shown(object sender, EventArgs e)
+        {
+            if (commandLineModelArg != "") { lxfName.Text = commandLineModelArg; updateControls(commandLineModelArg); }
+        }
+
+        private void LDDPartsListForm_DragEnter(object sender, DragEventArgs e)
+        {
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+            {
+                e.Effect = DragDropEffects.Copy;
+            }
+            else
+            {
+                e.Effect = DragDropEffects.None;
+            }
+        }
+
+        private void LDDPartsListForm_DragDrop(object sender, DragEventArgs e)
+        {
+            string[] FileList = (string[])e.Data.GetData(DataFormats.FileDrop, false);
+            foreach(string fileName in FileList)
+            {
+                if (fileName.EndsWith(".lxf")) { lxfName.Text = fileName; updateControls(fileName); break; }
+            }
+            
+        }
+
     }
 }
